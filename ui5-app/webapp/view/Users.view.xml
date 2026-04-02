@@ -3,8 +3,7 @@
   xmlns:mvc="sap.ui.core.mvc">
   <Page title="Gestione Utenti">
     <content>
-      <Table id="usersTable"
-        items="{
+      <Table items="{
           path: '/UsersView',
           parameters: {
             $orderby: 'surname asc'
