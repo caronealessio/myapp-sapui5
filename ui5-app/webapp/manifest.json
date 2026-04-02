@@ -1,0 +1,74 @@
+{
+  "_version": "1.58.0",
+  "sap.app": {
+    "id": "fiori.app",
+    "type": "application",
+    "title": "Fiori App",
+    "description": "App SAPUI5 collegata a CAP Service",
+    "applicationVersion": { "version": "1.0.0" },
+    "dataSources": {
+      "FioriService": {
+        "uri": "/fiori/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "fiori.app.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "appView"
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "fiori.app.view",
+        "controlId": "app",
+        "controlAggregation": "pages",
+        "async": true
+      },
+      "routes": [
+        {
+          "name": "users",
+          "pattern": "",
+          "target": "users"
+        }
+      ],
+      "targets": {
+        "users": {
+          "viewName": "Users",
+          "viewId": "usersView"
+        }
+      }
+    },
+    "models": {
+      "": {
+        "type": "sap.ui.model.odata.v4.ODataModel",
+        "settings": {
+          "serviceUrl": "/fiori/",
+          "synchronizationMode": "None",
+          "operationMode": "Server"
+        }
+      },
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "fiori.app.i18n.i18n"
+        }
+      }
+    }
+  }
+}

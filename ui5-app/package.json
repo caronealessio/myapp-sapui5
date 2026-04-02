@@ -1,0 +1,12 @@
+{
+  "name": "fiori-ui5-app",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "ui5 serve",
+    "build": "ui5 build"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^3",
+    "ui5-middleware-simpleproxy": "^0"
+  }
+}

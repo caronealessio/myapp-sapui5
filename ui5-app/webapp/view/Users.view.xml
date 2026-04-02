@@ -1,0 +1,74 @@
+<mvc:View controllerName="fiori.app.controller.Users"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc">
+  <Page title="Gestione Utenti">
+    <content>
+      <Table id="usersTable"
+        items="{
+          path: '/UsersView',
+          parameters: {
+            $orderby: 'surname asc'
+          }
+        }"
+        growing="true">
+        <headerToolbar>
+          <OverflowToolbar>
+            <Title text="Utenti"
+              level="H2" />
+            <ToolbarSpacer />
+            <SearchField width="200px"
+              placeholder="Cerca..."
+              search=".onSearch" />
+          </OverflowToolbar>
+        </headerToolbar>
+
+        <columns>
+          <Column>
+            <Text text="Nome" />
+          </Column>
+          <Column>
+            <Text text="Cognome" />
+          </Column>
+          <Column>
+            <Text text="Username" />
+          </Column>
+          <Column>
+            <Text text="Email" />
+          </Column>
+          <Column>
+            <Text text="Ruolo" />
+          </Column>
+          <Column>
+            <Text text="Genere" />
+          </Column>
+          <Column>
+            <Text text="Città" />
+          </Column>
+          <Column>
+            <Text text="Telefono" />
+          </Column>
+        </columns>
+
+        <items>
+          <ColumnListItem type="Navigation"
+            press=".onUserPress">
+            <cells>
+              <Text text="{name}" />
+              <Text text="{surname}" />
+              <Text text="{username}" />
+              <Text text="{email}" />
+              <ObjectStatus text="{role_name}"
+                state="{= ${role_code} === 'admin' ? 'Warning' : 'Information'}" />
+              <Text text="{gender_name}" />
+              <Text text="{city}" />
+              <Text text="{phone}" />
+            </cells>
+          </ColumnListItem>
+        </items>
+
+      </Table>
+    </content>
+
+  </Page>
+
+</mvc:View>
