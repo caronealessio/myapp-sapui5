@@ -5,6 +5,8 @@ import MessageToast from "sap/m/MessageToast";
 import Event from "sap/ui/base/Event";
 import Table from "sap/m/Table";
 import ListBinding from "sap/ui/model/ListBinding";
+import ResourceModel from "sap/ui/model/resource/ResourceModel";
+import ResourceBundle from "sap/base/i18n/ResourceBundle";
 
 /** @namespace fiori.app.controller */
 export default class Users extends Controller {
@@ -34,6 +36,7 @@ export default class Users extends Controller {
     const oItem = oEvent.getSource() as any;
     const oCtx = oItem.getBindingContext();
     const sId = oCtx.getProperty("id");
-    MessageToast.show(`Utente selezionato: ID ${sId}`);
+    const bundle = (this.getView()!.getModel("i18n") as ResourceModel).getResourceBundle() as ResourceBundle;
+    MessageToast.show(bundle.getText("users_msg_selected", [sId]));
   }
 }

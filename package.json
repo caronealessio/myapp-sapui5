@@ -1,0 +1,17 @@
+{
+  "ui5": {
+    "ui5linter": {
+      "usage": {
+        "WrongFieldMethodLinter": false,
+        "WrongImportLinter": false,
+        "TagAttributeLinter": false,
+        "UnusedMemberLinter": false,
+        "PublicMemberLinter": false,
+        "WrongParametersLinter": false,
+        "TagLinter": false
+      },
+      "idNamingPattern": "",
+      "eventNamingPattern": ""
+    }
+  }
+}

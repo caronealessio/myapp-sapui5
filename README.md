@@ -73,3 +73,52 @@ myapp/
 - Il proxy in `ui5.yaml` (middleware `ui5-middleware-simpleproxy`) evita problemi CORS girando le chiamate `/fiori/*` verso `localhost:4004/fiori`.
 - L'expand `role` e `gender` su Users è risolto lato server con una JOIN SQL, non tramite OData expand standard.
 - Le tabelle MariaDB **non vengono create né modificate** da CAP: il layer SQLite in-memory è usato solo internamente per generare i metadata OData.
+
+---
+
+## Convenzioni i18n
+
+Le chiavi i18n seguono il formato `<sezione>_<tipo>_<nome>` (snake_case).
+
+### Sezioni
+
+| Sezione   | Uso                                                             |
+| --------- | --------------------------------------------------------------- |
+| `app`     | Titolo e descrizione globale dell'app                           |
+| `common`  | Label riutilizzabili in più viste (nome, email, telefono…)      |
+| `<vista>` | Testi specifici di una singola vista (es. `users`, `customers`) |
+
+**Regola**: se una label compare in 2+ viste diverse, va in `common`. Altrimenti va nella sezione della vista.
+
+### Tipi
+
+| Tipo          | Uso                       | Esempio                    |
+| ------------- | ------------------------- | -------------------------- |
+| `title`       | Titolo di pagina/sezione  | `users_title`              |
+| `col`         | Header di colonna tabella | `common_col_name`          |
+| `btn`         | Label di pulsante         | `common_btn_save`          |
+| `msg`         | Messaggio (toast, dialog) | `users_msg_selected`       |
+| `lbl`         | Label generica            | `users_lbl_role`           |
+| `placeholder` | Placeholder di input      | `users_placeholder_search` |
+| `err`         | Messaggio di errore       | `users_err_load`           |
+
+---
+
+## Convenzioni ID UI5
+
+Prefisso + camelCase descrittivo.
+
+| Tipo controllo      | Prefisso | Esempio         |
+| ------------------- | -------- | --------------- |
+| Table               | `tbl`    | `tblUsers`      |
+| Input               | `inp`    | `inpUsername`   |
+| Button              | `btn`    | `btnSave`       |
+| Select / ComboBox   | `sel`    | `selRole`       |
+| Label               | `lbl`    | `lblUsername`   |
+| Form                | `frm`    | `frmUserDetail` |
+| Dialog              | `dlg`    | `dlgConfirm`    |
+| Panel               | `pnl`    | `pnlFilters`    |
+| SearchField         | `sf`     | `sfUsers`       |
+| DatePicker          | `dp`     | `dpBirthdate`   |
+| CheckBox            | `chk`    | `chkActive`     |
+| Text / ObjectStatus | `txt`    | `txtStatus`     |

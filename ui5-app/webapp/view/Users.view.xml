@@ -1,9 +1,10 @@
 <mvc:View controllerName="fiori.app.controller.Users"
   xmlns="sap.m"
   xmlns:mvc="sap.ui.core.mvc">
-  <Page title="Gestione Utenti">
+  <Page title="{i18n>users_title}">
     <content>
-      <Table items="{
+      <Table id="tblUsers"
+        items="{
           path: '/UsersView',
           parameters: {
             $orderby: 'surname asc'
@@ -12,39 +13,39 @@
         growing="true">
         <headerToolbar>
           <OverflowToolbar>
-            <Title text="Utenti"
+            <Title text="{i18n>users_title}"
               level="H2" />
             <ToolbarSpacer />
             <SearchField width="200px"
-              placeholder="Cerca..."
+              placeholder="{i18n>users_placeholder_search}"
               search=".onSearch" />
           </OverflowToolbar>
         </headerToolbar>
 
         <columns>
           <Column>
-            <Text text="Nome" />
+            <Text text="{i18n>common_col_name}" />
           </Column>
           <Column>
-            <Text text="Cognome" />
+            <Text text="{i18n>common_col_surname}" />
           </Column>
           <Column>
-            <Text text="Username" />
+            <Text text="{i18n>users_col_username}" />
           </Column>
           <Column>
-            <Text text="Email" />
+            <Text text="{i18n>common_col_email}" />
           </Column>
           <Column>
-            <Text text="Ruolo" />
+            <Text text="{i18n>users_col_role}" />
           </Column>
           <Column>
-            <Text text="Genere" />
+            <Text text="{i18n>users_col_gender}" />
           </Column>
           <Column>
-            <Text text="Città" />
+            <Text text="{i18n>common_col_city}" />
           </Column>
           <Column>
-            <Text text="Telefono" />
+            <Text text="{i18n>common_col_phone}" />
           </Column>
         </columns>
 
